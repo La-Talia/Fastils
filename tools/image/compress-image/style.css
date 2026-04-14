@@ -1,0 +1,77 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #f5f7fb;
+  color: #1a1d2e;
+  text-align: center;
+  padding: 40px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+}
+
+.subtitle {
+  color: #5b6178;
+  margin-bottom: 30px;
+}
+
+/* Upload */
+.upload-box {
+  border: 2px dashed #e8eaf2;
+  padding: 40px;
+  border-radius: 14px;
+  background: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.upload-box:hover {
+  border-color: #3b6df5;
+  background: #edf2ff;
+}
+
+/* Controls */
+.controls {
+  margin: 30px 0;
+}
+
+input[type="range"] {
+  width: 100%;
+}
+
+/* Preview */
+.preview {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.preview div {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  width: 300px;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Button */
+#downloadBtn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #3b6df5;
+  color: white;
+  border-radius: 10px;
+  text-decoration: none;
+}
