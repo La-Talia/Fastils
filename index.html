@@ -1,5 +1,1141 @@
-<html>
-  <p>
-    Hi!
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fastils — Fast, Free Tools That Just Work</title>
+  <meta name="description" content="All your everyday tools — calculators, converters, image compressors, PDF tools, and developer utilities — in one place. 100% free, no signup required.">
+  <meta name="keywords" content="free online tools, image compressor, EMI calculator, CGPA calculator, JSON formatter, PDF tools, developer tools, text tools">
+  <link rel="canonical" href="https://fastils.com">
+  <meta property="og:title" content="Fastils — Fast, Free Tools That Just Work">
+  <meta property="og:description" content="All your everyday tools — calculators, converters, and utilities — in one place.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #fdfdfe;
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text-primary: #1a1d2e;
+      --text-secondary: #5b6178;
+      --text-tertiary: #8b90a5;
+      --accent: #3b6df5;
+      --accent-hover: #2d5ae0;
+      --accent-light: #edf2ff;
+      --accent-glow: rgba(59, 109, 245, 0.12);
+      --teal: #18b5a0;
+      --teal-light: #e8faf7;
+      --coral: #f06449;
+      --coral-light: #fef0ed;
+      --amber: #f5a623;
+      --amber-light: #fef8ec;
+      --violet: #7c5df5;
+      --violet-light: #f3f0ff;
+      --border: #e8eaf2;
+      --border-light: #f0f1f6;
+      --shadow-sm: 0 1px 3px rgba(26, 29, 46, 0.04), 0 1px 2px rgba(26, 29, 46, 0.02);
+      --shadow-md: 0 4px 16px rgba(26, 29, 46, 0.06), 0 1px 4px rgba(26, 29, 46, 0.03);
+      --shadow-lg: 0 12px 40px rgba(26, 29, 46, 0.08), 0 4px 12px rgba(26, 29, 46, 0.04);
+      --shadow-xl: 0 20px 60px rgba(26, 29, 46, 0.1), 0 8px 20px rgba(26, 29, 46, 0.05);
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Navbar ── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(253, 253, 254, 0.82);
+      backdrop-filter: blur(20px) saturate(1.4);
+      -webkit-backdrop-filter: blur(20px) saturate(1.4);
+      border-bottom: 1px solid var(--border-light);
+      transition: var(--transition);
+    }
+    .navbar.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.45rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo .logo-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .nav-links a:hover { color: var(--text-primary); background: var(--accent-light); }
+
+    /* Dropdown */
+    .nav-dropdown {
+      position: relative;
+    }
+    .nav-dropdown-toggle {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      background: none;
+      border: none;
+    }
+    .nav-dropdown-toggle:hover { color: var(--text-primary); background: var(--accent-light); }
+    .nav-dropdown-toggle svg { width: 14px; height: 14px; transition: var(--transition); }
+    .nav-dropdown.open .nav-dropdown-toggle svg { transform: rotate(180deg); }
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      opacity: 0;
+      pointer-events: none;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      padding: 8px;
+      min-width: 210px;
+      transition: var(--transition);
+    }
+    .nav-dropdown.open .nav-dropdown-menu {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: all;
+    }
+    .nav-dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .nav-dropdown-menu a:hover { background: var(--accent-light); color: var(--accent); }
+    .cat-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* Mobile menu */
+    .nav-burger {
+      display: none;
+      background: none;
+      border: none;
+      padding: 6px;
+      cursor: pointer;
+      color: var(--text-primary);
+    }
+    .nav-burger svg { width: 24px; height: 24px; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .nav-links.mobile-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-md);
+        padding: 12px 20px 20px;
+        gap: 2px;
+      }
+      .nav-links.mobile-open a,
+      .nav-links.mobile-open .nav-dropdown-toggle {
+        width: 100%;
+        padding: 12px 14px;
+      }
+      .nav-dropdown-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        background: var(--bg);
+        border-radius: var(--radius-sm);
+        padding: 4px;
+        margin-top: 4px;
+      }
+      .nav-dropdown.open .nav-dropdown-menu { transform: none; }
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      padding: 140px 24px 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(59, 109, 245, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(24, 181, 160, 0.05) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 20% 30%, rgba(124, 93, 245, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .hero-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.5;
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black, transparent);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px 6px 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-badge-dot {
+      width: 22px;
+      height: 22px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-badge-dot svg { width: 12px; height: 12px; color: var(--teal); }
+
+    h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+    }
+    h1 .accent-word { color: var(--accent); }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    /* Search */
+    .search-wrap {
+      position: relative;
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var(--text-tertiary);
+      pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      padding: 16px 20px 16px 52px;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--text-primary);
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input::placeholder { color: var(--text-tertiary); }
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: var(--shadow-md), 0 0 0 4px var(--accent-glow);
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 28px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      background: var(--accent);
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(59, 109, 245, 0.25);
+      transition: var(--transition);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(59, 109, 245, 0.3);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary svg { width: 16px; height: 16px; }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 24px;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-secondary:active { transform: translateY(0); }
+
+    /* ── Ad Banner ── */
+    .ad-banner {
+      max-width: 1200px;
+      margin: 0 auto 20px;
+      padding: 0 24px;
+    }
+    .ad-slot {
+      background: var(--surface);
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .ad-slot-banner { height: 90px; }
+    .ad-slot-rect { height: 250px; }
+    .ad-slot-inline { height: 100px; margin: 40px 0; }
+
+    /* ── Sections ── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .section-label::before {
+      content: '';
+      width: 18px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.8px;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ── Content + Sidebar layout ── */
+    .content-with-sidebar {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-top: 60px;
+    }
+    .sidebar .ad-slot {
+      position: sticky;
+      top: 88px;
+    }
+    @media (max-width: 1024px) {
+      .content-with-sidebar {
+        grid-template-columns: 1fr;
+      }
+      .sidebar { display: none; }
+    }
+
+    /* ── Featured Tools ── */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .tool-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .tool-card:hover {
+      border-color: var(--accent-glow);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+    }
+    .tool-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tool-icon svg { width: 22px; height: 22px; }
+    .tool-name {
+      font-family: var(--font-heading);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+    .tool-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 18px;
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition);
+      align-self: flex-start;
+    }
+    .tool-btn:hover { background: var(--accent); color: var(--white); }
+    .tool-btn svg { width: 14px; height: 14px; }
+
+    /* ── Categories ── */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 768px) {
+      .categories-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .categories-grid { grid-template-columns: 1fr; }
+    }
+    .category-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .category-card:hover {
+      border-color: transparent;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    .category-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .category-icon svg { width: 22px; height: 22px; }
+    .category-info { flex: 1; }
+    .category-name {
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      letter-spacing: -0.2px;
+    }
+    .category-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+    .category-count {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      margin-top: 8px;
+    }
+
+    /* ── Why Fastils ── */
+    .why-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px) { .why-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 560px) { .why-grid { grid-template-columns: repeat(2, 1fr); } }
+    .why-item {
+      text-align: center;
+      padding: 28px 16px;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+    .why-item:hover { background: var(--bg); }
+    .why-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 14px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-light);
+    }
+    .why-icon svg { width: 22px; height: 22px; color: var(--accent); }
+    .why-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    .why-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--text-primary);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      max-width: 340px;
+    }
+    .footer-logo {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer-logo .logo-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .footer-desc {
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 32px auto 0;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.05s; }
+    .stagger-2 { transition-delay: 0.1s; }
+    .stagger-3 { transition-delay: 0.15s; }
+    .stagger-4 { transition-delay: 0.2s; }
+    .stagger-5 { transition-delay: 0.25s; }
+    .stagger-6 { transition-delay: 0.3s; }
+
+    /* ── Utility ── */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Navbar ─── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-dot"></span>Fastils
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li class="nav-dropdown" id="catDropdown">
+          <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Categories
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="#categories" role="menuitem">
+              <span class="cat-icon" style="background:var(--accent-light);color:var(--accent)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              </span>
+              Finance Tools
+            </a>
+            <a href="#categories" role="menuitem">
+              <span class="cat-icon" style="background:var(--teal-light);color:var(--teal)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </span>
+              Student Tools
+            </a>
+            <a href="#categories" role="menuitem">
+              <span class="cat-icon" style="background:var(--coral-light);color:var(--coral)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              </span>
+              Image Tools
+            </a>
+            <a href="#categories" role="menuitem">
+              <span class="cat-icon" style="background:var(--coral-light);color:var(--coral)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
+              PDF Tools
+            </a>
+            <a href="#categories" role="menuitem">
+              <span class="cat-icon" style="background:var(--violet-light);color:var(--violet)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </span>
+              Developer Tools
+            </a>
+            <a href="#categories" role="menuitem">
+              <span class="cat-icon" style="background:var(--amber-light);color:var(--amber)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+              </span>
+              Text Tools
+            </a>
+          </div>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─── -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-badge fade-up">
+        <span class="hero-badge-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </span>
+        100% Free &middot; No Signup Required
+      </div>
+      <h1 class="fade-up stagger-1">
+        <span class="accent-word">Fast</span>, Free Tools<br>That Just Work.
+      </h1>
+      <p class="hero-sub fade-up stagger-2">
+        All your everyday tools &mdash; calculators, converters, and utilities &mdash; in one place. No accounts, no limits.
+      </p>
+      <div class="search-wrap fade-up stagger-3">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input
+          type="search"
+          class="search-input"
+          placeholder="Search tools like 'compress image to 50kb'"
+          aria-label="Search tools"
+          id="heroSearch"
+        >
+      </div>
+      <div class="hero-ctas fade-up stagger-4">
+        <a href="#tools" class="btn-primary">
+          Explore Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#categories" class="btn-secondary">Browse Categories</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ─── Ad Banner (below hero) ─── -->
+  <div class="ad-banner">
+    <div class="ad-slot ad-slot-banner" aria-label="Advertisement">
+      Ad Space &middot; 728 &times; 90
+    </div>
+  </div>
+
+  <!-- ─── Main content with sidebar ─── -->
+  <div class="content-with-sidebar">
+    <main>
+
+      <!-- ─── Featured Tools ─── -->
+      <section class="section" id="tools" style="padding-left:0;padding-right:0;">
+        <div class="section-header">
+          <div class="section-label">Popular</div>
+          <h2 class="section-title">Featured Tools</h2>
+          <p class="section-desc">The most-used tools, ready in seconds. Pick one and get started.</p>
+        </div>
+
+        <div class="tools-grid">
+          <article class="tool-card fade-up stagger-1">
+            <div class="tool-icon" style="background:var(--coral-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <h3 class="tool-name">Image Compressor</h3>
+            <p class="tool-desc">Reduce image file size without losing visible quality. Supports JPG, PNG, and WebP.</p>
+            <a href="#" class="tool-btn">
+              Use Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+
+          <article class="tool-card fade-up stagger-2">
+            <div class="tool-icon" style="background:var(--accent-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="tool-name">EMI Calculator</h3>
+            <p class="tool-desc">Calculate monthly loan payments, total interest, and amortization schedules instantly.</p>
+            <a href="#" class="tool-btn">
+              Use Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+
+          <article class="tool-card fade-up stagger-3">
+            <div class="tool-icon" style="background:var(--teal-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <h3 class="tool-name">CGPA Calculator</h3>
+            <p class="tool-desc">Convert grades and credit hours into your cumulative grade point average in one step.</p>
+            <a href="#" class="tool-btn">
+              Use Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+
+          <article class="tool-card fade-up stagger-4">
+            <div class="tool-icon" style="background:var(--violet-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 class="tool-name">JSON Formatter</h3>
+            <p class="tool-desc">Beautify, minify, and validate JSON data with syntax highlighting and error detection.</p>
+            <a href="#" class="tool-btn">
+              Use Tool
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- ─── Inline Ad ─── -->
+      <div class="ad-slot ad-slot-inline" aria-label="Advertisement">
+        Ad Space &middot; Inline
+      </div>
+
+      <!-- ─── Categories ─── -->
+      <section class="section" id="categories" style="padding-left:0;padding-right:0;">
+        <div class="section-header">
+          <div class="section-label">Browse</div>
+          <h2 class="section-title">Tool Categories</h2>
+          <p class="section-desc">Find the right tool by category. Every tool is free and works in your browser.</p>
+        </div>
+
+        <div class="categories-grid">
+          <a href="#" class="category-card fade-up stagger-1">
+            <div class="category-icon" style="background:var(--accent-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Finance Tools</h3>
+              <p class="category-desc">Loan calculators, interest rates, investment planners, and budgeting helpers.</p>
+              <div class="category-count">12 tools</div>
+            </div>
+          </a>
+
+          <a href="#" class="category-card fade-up stagger-2">
+            <div class="category-icon" style="background:var(--teal-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Student Tools</h3>
+              <p class="category-desc">GPA calculators, citation generators, study timers, and grade trackers.</p>
+              <div class="category-count">9 tools</div>
+            </div>
+          </a>
+
+          <a href="#" class="category-card fade-up stagger-3">
+            <div class="category-icon" style="background:var(--coral-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Image Tools</h3>
+              <p class="category-desc">Compress, resize, convert, and optimize images for web and social media.</p>
+              <div class="category-count">8 tools</div>
+            </div>
+          </a>
+
+          <a href="#" class="category-card fade-up stagger-4">
+            <div class="category-icon" style="background:var(--coral-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">PDF Tools</h3>
+              <p class="category-desc">Merge, split, compress, and convert PDF files directly in your browser.</p>
+              <div class="category-count">7 tools</div>
+            </div>
+          </a>
+
+          <a href="#" class="category-card fade-up stagger-5">
+            <div class="category-icon" style="background:var(--violet-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Developer Tools</h3>
+              <p class="category-desc">JSON formatters, base64 encoders, regex testers, and code beautifiers.</p>
+              <div class="category-count">14 tools</div>
+            </div>
+          </a>
+
+          <a href="#" class="category-card fade-up stagger-6">
+            <div class="category-icon" style="background:var(--amber-light);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>
+            </div>
+            <div class="category-info">
+              <h3 class="category-name">Text Tools</h3>
+              <p class="category-desc">Word counters, case converters, lorem generators, and string utilities.</p>
+              <div class="category-count">11 tools</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ─── Sidebar Ads (Desktop) ─── -->
+    <aside class="sidebar" aria-label="Sidebar advertisements">
+      <div class="ad-slot ad-slot-rect" aria-label="Advertisement">
+        Ad Space<br>300 &times; 250
+      </div>
+      <div class="ad-slot ad-slot-rect" aria-label="Advertisement">
+        Ad Space<br>300 &times; 250
+      </div>
+    </aside>
+  </div>
+
+  <!-- ─── Inline Ad ─── -->
+  <div class="ad-banner" style="margin-top: 20px;">
+    <div class="ad-slot ad-slot-banner" aria-label="Advertisement">
+      Ad Space &middot; 728 &times; 90
+    </div>
+  </div>
+
+  <!-- ─── Why Fastils ─── -->
+  <section class="why-section" id="about">
+    <div class="section" style="padding-bottom: 48px;">
+      <div class="section-header">
+        <div class="section-label">Why Fastils</div>
+        <h2 class="section-title">Built for Speed and Simplicity</h2>
+        <p class="section-desc">No gimmicks. Every tool is designed to get you results as fast as possible.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-item fade-up stagger-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="why-title">Instant Results</div>
+          <div class="why-desc">Tools run in your browser with zero waiting</div>
+        </div>
+
+        <div class="why-item fade-up stagger-2">
+          <div class="why-icon" style="background:var(--teal-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="why-title">100% Free</div>
+          <div class="why-desc">Every tool, every feature, completely free to use</div>
+        </div>
+
+        <div class="why-item fade-up stagger-3">
+          <div class="why-icon" style="background:var(--coral-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="why-title">No Signup</div>
+          <div class="why-desc">Jump straight into any tool without creating an account</div>
+        </div>
+
+        <div class="why-item fade-up stagger-4">
+          <div class="why-icon" style="background:var(--violet-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="why-title">In-Browser</div>
+          <div class="why-desc">Works on any device with a web browser, nothing to install</div>
+        </div>
+
+        <div class="why-item fade-up stagger-5">
+          <div class="why-icon" style="background:var(--amber-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="why-title">Privacy-First</div>
+          <div class="why-desc">Your data stays on your device. Nothing stored on our servers</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Footer ─── -->
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-dot"></span>Fastils</div>
+        <p class="footer-desc">
+          A collection of fast, free online tools for everyday tasks. Built to be simple, private, and reliable.
+        </p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Fastils. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    // ── Navbar scroll effect ──
+    const navbar = document.querySelector('.navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── Mobile menu ──
+    const burger = document.getElementById('navBurger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('mobile-open');
+    });
+
+    // ── Categories dropdown ──
+    const dropdown = document.getElementById('catDropdown');
+    const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', () => {
+      dropdown.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+
+    // ── Intersection Observer for fade-in ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // ── Search focus shortcut (/) ──
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '/' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+        e.preventDefault();
+        document.getElementById('heroSearch').focus();
+      }
+    });
+  </script>
+</body>
 </html>
