@@ -3,69 +3,134 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compress Image Online - Tolza</title>
+  <title>Compress Image Online Free — Reduce File Size | Tolza</title>
+  <meta name="description" content="Compress images online for free. Reduce JPG, PNG, and WebP file sizes without losing visible quality. No signup, no uploads to servers.">
+  <link rel="canonical" href="https://tolza.pages.dev/tools/image/compress-image/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Compress Image Online","description":"Free online image compressor. Reduce image file size without losing quality.","url":"https://tolza.pages.dev/tools/image/compress-image/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
 </head>
 <body>
-<!-- Header -->
-<header class="tool-header">
-  <div class="header-inner">
+<div class="g-tool-page">
 
-    <!-- Left -->
-    <div class="header-left">
-      <a href="/" class="logo">
-        <span class="dot"></span>Tolza
-      </a>
+  <!-- ─── Shared Navbar ─── -->
+  <nav class="g-navbar" role="navigation" aria-label="Main navigation">
+    <div class="g-nav-inner">
+      <a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a>
+      <ul class="g-nav-links" id="gNavLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/image/" class="active">Image Tools</a></li>
+        <li><a href="#">More Tools</a></li>
+      </ul>
+      <div class="g-nav-right">
+        <button id="gBackBtn" class="g-back-btn" aria-label="Go back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="g-nav-burger" id="gNavBurger" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
 
-      <a href="/" class="back-btn">← Back</a>
+  <main>
+    <!-- Ad Banner (top) -->
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+
+    <!-- Original tool content (untouched) -->
+    <div class="container">
+      <h1>Compress Image</h1>
+      <p class="subtitle">Reduce image size instantly without losing quality</p>
+
+      <!-- Upload Area -->
+      <div class="upload-box" id="uploadBox">
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <p>Click or Drag & Drop Image</p>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <label>Compression Level: <span id="qualityValue">70</span>%</label>
+        <input type="range" id="qualitySlider" min="10" max="100" value="70">
+      </div>
+
+      <!-- Preview -->
+      <div class="preview">
+        <div>
+          <h3>Original</h3>
+          <img id="originalImg">
+          <p id="originalSize"></p>
+        </div>
+
+        <div>
+          <h3>Compressed</h3>
+          <img id="compressedImg">
+          <p id="compressedSize"></p>
+          <a id="downloadBtn" download="compressed.jpg">Download</a>
+        </div>
+      </div>
     </div>
 
-    <!-- Center Navigation -->
-    <nav class="tool-nav">
-      <select onchange="location = this.value;">
-        <option value="">All Tools</option>
-        <option value="/tools/image/compress-image-50kb/">Image Compressor</option>
-        <option value="/tools/finance/emi-calculator/">EMI Calculator</option>
-        <option value="/tools/student/cgpa-calculator/">CGPA Calculator</option>
-        <option value="/tools/developer/json-formatter/">JSON Formatter</option>
-      </select>
-    </nav>
+    <!-- Ad -->
+    <div class="g-ad-slot g-ad-slot-inline" style="max-width:900px;margin:40px auto;" aria-label="Advertisement">Ad Space &middot; Inline</div>
 
-  </div>
-</header>
-<div class="container">
-  <h1>Compress Image</h1>
-  <p class="subtitle">Reduce image size instantly without losing quality</p>
-
-  <!-- Upload Area -->
-  <div class="upload-box" id="uploadBox">
-    <input type="file" id="fileInput" accept="image/*" hidden>
-    <p>Click or Drag & Drop Image</p>
-  </div>
-
-  <!-- Controls -->
-  <div class="controls">
-    <label>Compression Level: <span id="qualityValue">70</span>%</label>
-    <input type="range" id="qualitySlider" min="10" max="100" value="70">
-  </div>
-
-  <!-- Preview -->
-  <div class="preview">
-    <div>
-      <h3>Original</h3>
-      <img id="originalImg">
-      <p id="originalSize"></p>
+    <!-- Related Tools -->
+    <div class="g-related-tools">
+      <h2>Related Image Tools</h2>
+      <div class="g-related-grid">
+        <a href="/tools/image/resize-image/" class="g-related-card">
+          <div class="g-related-card-icon" style="background:var(--accent-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          <span class="g-related-card-name">Resize Image</span>
+        </a>
+        <a href="/tools/image/convert-image/" class="g-related-card">
+          <div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <span class="g-related-card-name">Convert Image</span>
+        </a>
+        <a href="/tools/image/crop-image/" class="g-related-card">
+          <div class="g-related-card-icon" style="background:var(--teal-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/></svg></div>
+          <span class="g-related-card-name">Crop Image</span>
+        </a>
+      </div>
     </div>
 
-    <div>
-      <h3>Compressed</h3>
-      <img id="compressedImg">
-      <p id="compressedSize"></p>
-      <a id="downloadBtn" download="compressed.jpg">Download</a>
+    <!-- FAQ -->
+    <section class="g-faq">
+      <h2 class="g-faq-title">Frequently Asked Questions</h2>
+      <div class="g-faq-item"><button class="g-faq-question">How much can I compress?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">JPG images can typically be reduced by 50-80% at quality level 70 with minimal visible difference. PNG images are compressed by converting to JPG.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">Is the compression lossless?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">The compression uses JPEG encoding, which is technically lossy. However, at quality levels above 60%, the visual difference is imperceptible to most viewers.</div></div></div>
+    </section>
+
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+  </main>
+
+  <!-- ─── Shared Footer ─── -->
+  <footer class="g-footer">
+    <div class="g-footer-inner">
+      <div class="g-footer-brand">
+        <div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div>
+        <p class="g-footer-desc">A collection of fast, free online tools for everyday tasks. Built to be simple, private, and reliable.</p>
+      </div>
+      <div class="g-footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
     </div>
-  </div>
+    <div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div>
+  </footer>
 </div>
 
+<script src="/js/global.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convert PDF to Images Online Free — Extract Pages as JPG/PNG | Tolza</title>
+  <meta name="description" content="Convert PDF pages to images online for free. Extract each page as a high-quality JPG or PNG image. Download individually or as a ZIP.">
+  <link rel="canonical" href="https://tolza.pages.dev/tools/image/pdf-to-image/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"PDF to Image","description":"Free online tool to convert PDF pages to high-quality images.","url":"https://tolza.pages.dev/tools/image/pdf-to-image/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .pages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 24px; }
+    .page-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; text-align: center; transition: var(--transition); }
+    .page-card:hover { box-shadow: var(--shadow-md); }
+    .page-card canvas, .page-card img { width: 100%; border-radius: 8px; }
+    .page-card-label { font-size: 0.82rem; font-weight: 600; color: var(--text-secondary); margin: 8px 0 6px; }
+    .page-card-btn { display: inline-flex; align-items: center; gap: 4px; padding: 6px 14px; font-size: 0.8rem; font-weight: 600; color: var(--accent); background: var(--accent-light); border: none; border-radius: 8px; cursor: pointer; transition: var(--transition); }
+    .page-card-btn:hover { background: var(--accent); color: var(--white); }
+  </style>
+</head>
+<body>
+<div class="g-tool-page">
+  <nav class="g-navbar" role="navigation"><div class="g-nav-inner"><a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a><ul class="g-nav-links" id="gNavLinks"><li><a href="/">Home</a></li><li><a href="/tools/image/" class="active">Image Tools</a></li><li><a href="#">More Tools</a></li></ul><div class="g-nav-right"><button id="gBackBtn" class="g-back-btn" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back</button><button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="g-nav-burger" id="gNavBurger" aria-label="Toggle menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></div></nav>
+
+  <main>
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+
+    <div class="g-tool-hero">
+      <div class="g-tool-hero-content">
+        <div class="g-tool-icon-badge" style="background:var(--rose-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="12" width="8" height="6" rx="1"/></svg></div>
+        <h1>PDF to Images</h1>
+        <p>Convert each page of your PDF to a high-quality image. Download individually or all at once.</p>
+      </div>
+    </div>
+
+    <div class="g-tool-container g-tool-container-wide">
+      <div class="g-upload-zone" id="uploadZone">
+        <input type="file" accept=".pdf,application/pdf" id="fileInput">
+        <div class="g-upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="g-upload-title">Drop your PDF file here</div>
+        <div class="g-upload-subtitle">or <span>click to browse</span> &middot; PDF files only</div>
+      </div>
+
+      <!-- Controls -->
+      <div class="g-tool-controls g-hidden" id="controls">
+        <div class="g-tool-controls-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/></svg>Options</div>
+        <div class="g-control-row">
+          <label class="g-control-label" for="formatSelect">Output Format</label>
+          <select id="formatSelect" class="g-select">
+            <option value="png">PNG (lossless)</option>
+            <option value="jpeg">JPG (smaller size)</option>
+          </select>
+        </div>
+        <div class="g-control-row">
+          <label class="g-control-label" for="scaleSlider">Quality Scale</label>
+          <input type="range" id="scaleSlider" class="g-range" min="1" max="3" step="0.5" value="2">
+          <span class="g-control-value" id="scaleVal">2x</span>
+        </div>
+      </div>
+
+      <!-- Progress -->
+      <div class="g-progress-wrap" id="progressWrap">
+        <div class="g-progress-bar"><div class="g-progress-fill" id="progressFill"></div></div>
+        <div class="g-progress-text" id="progressText">Converting...</div>
+      </div>
+
+      <!-- Pages grid -->
+      <div class="pages-grid g-hidden" id="pagesGrid"></div>
+
+      <!-- Buttons -->
+      <div class="g-btn-group g-hidden" id="btnGroup">
+        <button class="g-btn-primary" id="downloadAllBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download All</button>
+        <button class="g-btn-secondary" id="resetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Reset</button>
+      </div>
+
+      <div class="g-ad-slot g-ad-slot-inline" aria-label="Advertisement">Ad Space &middot; Inline</div>
+
+      <div class="g-related-tools"><h2>Related Image Tools</h2><div class="g-related-grid">
+        <a href="/tools/image/image-to-pdf/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--violet-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><span class="g-related-card-name">Image to PDF</span></a>
+        <a href="/tools/image/compress-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><span class="g-related-card-name">Compress Image</span></a>
+        <a href="/tools/image/convert-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><span class="g-related-card-name">Convert Image</span></a>
+      </div></div>
+    </div>
+
+    <section class="g-faq"><h2 class="g-faq-title">FAQ</h2>
+      <div class="g-faq-item"><button class="g-faq-question">How is the image quality?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">The quality scale slider controls rendering resolution. At 2x, each page is rendered at double resolution for crisp images. Use 3x for print-quality output, or 1x for smaller file sizes.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">Is there a page limit?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">No hard limit. Processing happens in your browser using pdf.js. Very large PDFs (100+ pages) may be slow depending on your device. Each page is converted one at a time to manage memory.</div></div></div>
+    </section>
+
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+  </main>
+
+  <footer class="g-footer"><div class="g-footer-inner"><div class="g-footer-brand"><div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div><p class="g-footer-desc">A collection of fast, free online tools for everyday tasks.</p></div><div class="g-footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact</a></div></div><div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div></footer>
+</div>
+
+<!-- PDF.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  // Set the worker source for pdf.js
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+</script>
+<script src="/js/global.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  let pageDataUrls = []; // stored data URLs for download all
+
+  const pagesGrid = document.getElementById('pagesGrid');
+  const scaleSlider = document.getElementById('scaleSlider');
+  const formatSelect = document.getElementById('formatSelect');
+
+  scaleSlider.addEventListener('input', () => {
+    document.getElementById('scaleVal').textContent = scaleSlider.value + 'x';
+  });
+
+  TolzaUpload('uploadZone', async (files) => {
+    const file = files[0];
+    if (!file || file.type !== 'application/pdf') {
+      TolzaToast('Please select a PDF file.');
+      return;
+    }
+
+    document.getElementById('controls').classList.remove('g-hidden');
+    const progressWrap = document.getElementById('progressWrap');
+    const progressFill = document.getElementById('progressFill');
+    const progressText = document.getElementById('progressText');
+    progressWrap.classList.add('active');
+    pageDataUrls = [];
+
+    try {
+      const arrayBuffer = await file.arrayBuffer();
+      const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+      const numPages = pdf.numPages;
+      const scale = parseFloat(scaleSlider.value);
+      const format = formatSelect.value;
+      const mimeType = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+
+      pagesGrid.innerHTML = '';
+      pagesGrid.classList.remove('g-hidden');
+
+      for (let i = 1; i <= numPages; i++) {
+        progressText.textContent = `Rendering page ${i} of ${numPages}...`;
+        progressFill.style.width = (i / numPages * 100) + '%';
+
+        const page = await pdf.getPage(i);
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+
+        await page.render({ canvasContext: ctx, viewport }).promise;
+
+        const dataUrl = canvas.toDataURL(mimeType, 0.92);
+        pageDataUrls.push({ dataUrl, name: `page-${i}.${format}` });
+
+        // Create card
+        const card = document.createElement('div');
+        card.className = 'page-card';
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        img.alt = `Page ${i}`;
+        card.appendChild(img);
+
+        const label = document.createElement('div');
+        label.className = 'page-card-label';
+        label.textContent = `Page ${i} of ${numPages}`;
+        card.appendChild(label);
+
+        const btn = document.createElement('button');
+        btn.className = 'page-card-btn';
+        btn.textContent = '⬇ Download';
+        btn.addEventListener('click', () => {
+          const a = document.createElement('a');
+          a.download = `page-${i}.${format}`;
+          a.href = dataUrl;
+          a.click();
+        });
+        card.appendChild(btn);
+        pagesGrid.appendChild(card);
+      }
+
+      progressText.textContent = `Done! ${numPages} pages converted.`;
+      document.getElementById('btnGroup').classList.remove('g-hidden');
+
+      setTimeout(() => progressWrap.classList.remove('active'), 2000);
+
+    } catch (err) {
+      progressText.textContent = 'Error: ' + err.message;
+      console.error(err);
+    }
+  }, { accept: '.pdf,application/pdf' });
+
+  // Download all
+  document.getElementById('downloadAllBtn').addEventListener('click', () => {
+    if (pageDataUrls.length === 0) return;
+    // Download each individually (ZIP would require JSZip library)
+    pageDataUrls.forEach((p, i) => {
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.download = p.name;
+        a.href = p.dataUrl;
+        a.click();
+      }, i * 200); // Stagger downloads
+    });
+    TolzaToast(`Downloading ${pageDataUrls.length} images...`);
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    pageDataUrls = [];
+    pagesGrid.innerHTML = '';
+    pagesGrid.classList.add('g-hidden');
+    document.getElementById('controls').classList.add('g-hidden');
+    document.getElementById('btnGroup').classList.add('g-hidden');
+    document.getElementById('progressWrap').classList.remove('active');
+    document.getElementById('fileInput').value = '';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Watermark to Image Online Free | Tolza</title>
+  <meta name="description" content="Add text watermarks to images online for free. Control position, opacity, font size, and color. No signup required.">
+  <link rel="canonical" href="https://tolza.pages.dev/tools/image/watermark-image/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Watermark Image","description":"Free online tool to add text watermarks to images.","url":"https://tolza.pages.dev/tools/image/watermark-image/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .position-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; width: 150px; }
+    .pos-btn { width: 46px; height: 34px; border: 1.5px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; transition: var(--transition); font-size: 0.7rem; font-weight: 600; color: var(--text-tertiary); }
+    .pos-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .pos-btn.active { background: var(--accent); border-color: var(--accent); color: var(--white); }
+  </style>
+</head>
+<body>
+<div class="g-tool-page">
+  <nav class="g-navbar" role="navigation"><div class="g-nav-inner"><a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a><ul class="g-nav-links" id="gNavLinks"><li><a href="/">Home</a></li><li><a href="/tools/image/" class="active">Image Tools</a></li><li><a href="#">More Tools</a></li></ul><div class="g-nav-right"><button id="gBackBtn" class="g-back-btn" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back</button><button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="g-nav-burger" id="gNavBurger" aria-label="Toggle menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></div></nav>
+
+  <main>
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+
+    <div class="g-tool-hero">
+      <div class="g-tool-hero-content">
+        <div class="g-tool-icon-badge" style="background:var(--accent-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+        <h1>Watermark Image</h1>
+        <p>Add custom text watermarks with control over position, size, opacity, and color.</p>
+      </div>
+    </div>
+
+    <div class="g-tool-container">
+      <div class="g-upload-zone" id="uploadZone">
+        <input type="file" accept="image/*" id="fileInput">
+        <div class="g-upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="g-upload-title">Drop your image here</div>
+        <div class="g-upload-subtitle">or <span>click to browse</span></div>
+      </div>
+
+      <div class="g-tool-controls g-hidden" id="controls">
+        <div class="g-tool-controls-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg>Watermark Options</div>
+
+        <div class="g-control-row">
+          <label class="g-control-label" for="wmText">Text</label>
+          <input type="text" id="wmText" class="g-input" value="Tolza" placeholder="Watermark text" style="flex:1;">
+        </div>
+        <div class="g-control-row">
+          <label class="g-control-label" for="wmSize">Font Size</label>
+          <input type="range" id="wmSize" class="g-range" min="12" max="200" value="48">
+          <span class="g-control-value" id="wmSizeVal">48px</span>
+        </div>
+        <div class="g-control-row">
+          <label class="g-control-label" for="wmOpacity">Opacity</label>
+          <input type="range" id="wmOpacity" class="g-range" min="5" max="100" value="40">
+          <span class="g-control-value" id="wmOpacityVal">40%</span>
+        </div>
+        <div class="g-control-row">
+          <label class="g-control-label">Color</label>
+          <div class="g-color-picker"><input type="color" id="wmColor" value="#ffffff"></div>
+        </div>
+        <div class="g-control-row">
+          <label class="g-control-label">Position</label>
+          <div class="position-grid" id="posGrid">
+            <button class="pos-btn" data-pos="top-left">TL</button>
+            <button class="pos-btn" data-pos="top-center">TC</button>
+            <button class="pos-btn" data-pos="top-right">TR</button>
+            <button class="pos-btn" data-pos="mid-left">ML</button>
+            <button class="pos-btn active" data-pos="mid-center">C</button>
+            <button class="pos-btn" data-pos="mid-right">MR</button>
+            <button class="pos-btn" data-pos="bot-left">BL</button>
+            <button class="pos-btn" data-pos="bot-center">BC</button>
+            <button class="pos-btn" data-pos="bot-right">BR</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="g-preview-area g-hidden" id="previewArea"><canvas id="canvas"></canvas></div>
+
+      <div class="g-btn-group g-hidden" id="btnGroup">
+        <button class="g-btn-primary" id="downloadBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download</button>
+        <button class="g-btn-secondary" id="resetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Reset</button>
+      </div>
+
+      <div class="g-ad-slot g-ad-slot-inline" aria-label="Advertisement">Ad Space &middot; Inline</div>
+
+      <div class="g-related-tools"><h2>Related Image Tools</h2><div class="g-related-grid">
+        <a href="/tools/image/compress-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><span class="g-related-card-name">Compress Image</span></a>
+        <a href="/tools/image/rotate-flip-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--green-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div><span class="g-related-card-name">Rotate & Flip</span></a>
+        <a href="/tools/image/blur-pixelate-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg></div><span class="g-related-card-name">Blur & Pixelate</span></a>
+      </div></div>
+    </div>
+
+    <section class="g-faq"><h2 class="g-faq-title">FAQ</h2>
+      <div class="g-faq-item"><button class="g-faq-question">Can I add an image watermark?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">Currently this tool supports text watermarks only. Image/logo watermarks may be added in a future update.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">Is the watermark permanent?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">Yes, the downloaded image has the watermark embedded permanently. It cannot be removed after download since it's baked into the pixels.</div></div></div>
+    </section>
+
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+  </main>
+
+  <footer class="g-footer"><div class="g-footer-inner"><div class="g-footer-brand"><div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div><p class="g-footer-desc">A collection of fast, free online tools for everyday tasks.</p></div><div class="g-footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact</a></div></div><div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div></footer>
+</div>
+
+<script src="/js/global.js"></script>
+<script>
+(function() {
+  'use strict';
+  let img = null;
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let position = 'mid-center';
+
+  TolzaUpload('uploadZone', (files) => {
+    const file = files[0];
+    if (!file || !file.type.startsWith('image/')) return;
+    const i = new Image();
+    i.onload = () => {
+      img = i;
+      document.getElementById('controls').classList.remove('g-hidden');
+      document.getElementById('previewArea').classList.remove('g-hidden');
+      document.getElementById('btnGroup').classList.remove('g-hidden');
+      render();
+    };
+    i.src = URL.createObjectURL(file);
+  });
+
+  // Controls
+  const wmText = document.getElementById('wmText');
+  const wmSize = document.getElementById('wmSize');
+  const wmOpacity = document.getElementById('wmOpacity');
+  const wmColor = document.getElementById('wmColor');
+
+  [wmText, wmSize, wmOpacity, wmColor].forEach(el => {
+    el.addEventListener('input', () => {
+      document.getElementById('wmSizeVal').textContent = wmSize.value + 'px';
+      document.getElementById('wmOpacityVal').textContent = wmOpacity.value + '%';
+      render();
+    });
+  });
+
+  // Position grid
+  document.getElementById('posGrid').addEventListener('click', (e) => {
+    const btn = e.target.closest('.pos-btn');
+    if (!btn) return;
+    document.querySelectorAll('.pos-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    position = btn.dataset.pos;
+    render();
+  });
+
+  function render() {
+    if (!img) return;
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+
+    const text = wmText.value || 'Watermark';
+    const size = parseInt(wmSize.value);
+    const opacity = parseInt(wmOpacity.value) / 100;
+    const color = wmColor.value;
+
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.font = `bold ${size}px Arial, sans-serif`;
+    ctx.fillStyle = color;
+
+    const metrics = ctx.measureText(text);
+    const textW = metrics.width;
+    const textH = size;
+    const pad = Math.max(20, size * 0.4);
+
+    let x, y;
+    switch (position) {
+      case 'top-left':    x = pad; y = textH + pad; break;
+      case 'top-center':  x = (img.width - textW) / 2; y = textH + pad; break;
+      case 'top-right':   x = img.width - textW - pad; y = textH + pad; break;
+      case 'mid-left':    x = pad; y = (img.height + textH) / 2; break;
+      case 'mid-center':  x = (img.width - textW) / 2; y = (img.height + textH) / 2; break;
+      case 'mid-right':   x = img.width - textW - pad; y = (img.height + textH) / 2; break;
+      case 'bot-left':    x = pad; y = img.height - pad; break;
+      case 'bot-center':  x = (img.width - textW) / 2; y = img.height - pad; break;
+      case 'bot-right':   x = img.width - textW - pad; y = img.height - pad; break;
+      default:            x = (img.width - textW) / 2; y = (img.height + textH) / 2;
+    }
+
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+
+  document.getElementById('downloadBtn').addEventListener('click', () => {
+    if (!img) return;
+    const a = document.createElement('a');
+    a.download = 'watermarked-image.png';
+    a.href = canvas.toDataURL('image/png');
+    a.click();
+    TolzaToast('Image downloaded!');
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    img = null;
+    document.getElementById('controls').classList.add('g-hidden');
+    document.getElementById('previewArea').classList.add('g-hidden');
+    document.getElementById('btnGroup').classList.add('g-hidden');
+    document.getElementById('fileInput').value = '';
+  });
+})();
+</script>
+</body>
+</html>

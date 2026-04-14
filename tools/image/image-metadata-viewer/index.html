@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Metadata Viewer — View EXIF Data Online Free | Tolza</title>
+  <meta name="description" content="View image EXIF metadata online for free. See camera info, GPS coordinates, dimensions, file details, and more. No upload to servers.">
+  <link rel="canonical" href="https://tolza.pages.dev/tools/image/image-metadata-viewer/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Image Metadata Viewer","description":"Free online EXIF metadata viewer for images.","url":"https://tolza.pages.dev/tools/image/image-metadata-viewer/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+  <style>
+    .meta-preview-row { display: grid; grid-template-columns: 200px 1fr; gap: 24px; margin-top: 24px; }
+    .meta-thumb { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 12px; text-align: center; }
+    .meta-thumb img { max-height: 200px; border-radius: var(--radius-sm); margin: 0 auto; }
+    .meta-thumb-name { font-size: 0.82rem; color: var(--text-tertiary); margin-top: 8px; word-break: break-all; }
+    .meta-tables { flex: 1; }
+    .meta-group-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--accent); margin: 24px 0 10px; display: flex; align-items: center; gap: 8px; }
+    .meta-group-title:first-child { margin-top: 0; }
+    .meta-group-title svg { width: 18px; height: 18px; }
+    @media (max-width: 640px) { .meta-preview-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="g-tool-page">
+  <nav class="g-navbar" role="navigation"><div class="g-nav-inner"><a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a><ul class="g-nav-links" id="gNavLinks"><li><a href="/">Home</a></li><li><a href="/tools/image/" class="active">Image Tools</a></li><li><a href="#">More Tools</a></li></ul><div class="g-nav-right"><button id="gBackBtn" class="g-back-btn" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back</button><button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button><button class="g-nav-burger" id="gNavBurger" aria-label="Toggle menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button></div></div></nav>
+
+  <main>
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+
+    <div class="g-tool-hero">
+      <div class="g-tool-hero-content">
+        <div class="g-tool-icon-badge" style="background:var(--teal-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+        <h1>Image Metadata Viewer</h1>
+        <p>View EXIF data, camera info, GPS coordinates, dimensions, and detailed file information from any image.</p>
+      </div>
+    </div>
+
+    <div class="g-tool-container g-tool-container-wide">
+      <div class="g-upload-zone" id="uploadZone">
+        <input type="file" accept="image/*" id="fileInput">
+        <div class="g-upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="g-upload-title">Drop your image here</div>
+        <div class="g-upload-subtitle">or <span>click to browse</span> &middot; JPG images contain the most EXIF data</div>
+      </div>
+
+      <div class="g-hidden" id="resultArea">
+        <div class="meta-preview-row">
+          <div class="meta-thumb">
+            <img id="thumbImg" alt="Uploaded image preview">
+            <div class="meta-thumb-name" id="fileName"></div>
+          </div>
+          <div class="meta-tables" id="metaTables"></div>
+        </div>
+      </div>
+
+      <div class="g-btn-group g-hidden" id="btnGroup">
+        <button class="g-btn-secondary" id="resetBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>Reset</button>
+      </div>
+
+      <div class="g-ad-slot g-ad-slot-inline" aria-label="Advertisement">Ad Space &middot; Inline</div>
+
+      <div class="g-related-tools"><h2>Related Image Tools</h2><div class="g-related-grid">
+        <a href="/tools/image/compress-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><span class="g-related-card-name">Compress Image</span></a>
+        <a href="/tools/image/convert-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div><span class="g-related-card-name">Convert Image</span></a>
+        <a href="/tools/image/resize-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--accent-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div><span class="g-related-card-name">Resize Image</span></a>
+      </div></div>
+    </div>
+
+    <section class="g-faq"><h2 class="g-faq-title">FAQ</h2>
+      <div class="g-faq-item"><button class="g-faq-question">What is EXIF data?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">EXIF (Exchangeable Image File Format) data is metadata embedded in photos by cameras and smartphones. It includes information like camera model, shutter speed, ISO, aperture, GPS coordinates, date taken, and more.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">Which formats contain EXIF data?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">JPEG/JPG images contain the most EXIF data. TIFF files also support EXIF. PNG and WebP files typically contain minimal metadata. Screenshots usually don't have camera EXIF data.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">Is my image uploaded anywhere?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">No. All metadata extraction happens entirely in your browser. Your image never leaves your device and no data is sent to any server.</div></div></div>
+    </section>
+
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+  </main>
+
+  <footer class="g-footer"><div class="g-footer-inner"><div class="g-footer-brand"><div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div><p class="g-footer-desc">A collection of fast, free online tools for everyday tasks.</p></div><div class="g-footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact</a></div></div><div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div></footer>
+</div>
+
+<!-- EXIF.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.min.js"></script>
+<script src="/js/global.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  TolzaUpload('uploadZone', (files) => {
+    const file = files[0];
+    if (!file || !file.type.startsWith('image/')) return;
+
+    // Show thumbnail
+    const thumbImg = document.getElementById('thumbImg');
+    thumbImg.src = URL.createObjectURL(file);
+    document.getElementById('fileName').textContent = file.name;
+    document.getElementById('resultArea').classList.remove('g-hidden');
+    document.getElementById('btnGroup').classList.remove('g-hidden');
+
+    // Basic file info
+    const img = new Image();
+    img.onload = () => {
+      const basicInfo = {
+        'File Name': file.name,
+        'File Size': TolzaFormatSize(file.size),
+        'File Type': file.type,
+        'Dimensions': img.width + ' × ' + img.height + ' px',
+        'Aspect Ratio': gcd(img.width, img.height) ? (img.width / gcd(img.width, img.height)) + ':' + (img.height / gcd(img.width, img.height)) : 'N/A',
+        'Last Modified': file.lastModified ? new Date(file.lastModified).toLocaleString() : 'N/A'
+      };
+
+      let html = '';
+      html += buildTable('📄 File Information', basicInfo);
+
+      // Try to read EXIF
+      EXIF.getData(file, function() {
+        const allTags = EXIF.getAllTags(this);
+
+        if (allTags && Object.keys(allTags).length > 0) {
+          // Camera info
+          const cameraInfo = {};
+          if (allTags.Make) cameraInfo['Camera Make'] = allTags.Make;
+          if (allTags.Model) cameraInfo['Camera Model'] = allTags.Model;
+          if (allTags.LensMake) cameraInfo['Lens Make'] = allTags.LensMake;
+          if (allTags.LensModel) cameraInfo['Lens Model'] = allTags.LensModel;
+          if (allTags.Software) cameraInfo['Software'] = allTags.Software;
+
+          if (Object.keys(cameraInfo).length) {
+            html += buildTable('📷 Camera Information', cameraInfo);
+          }
+
+          // Exposure info
+          const exposureInfo = {};
+          if (allTags.ExposureTime) exposureInfo['Shutter Speed'] = allTags.ExposureTime.numerator + '/' + allTags.ExposureTime.denominator + 's';
+          if (allTags.FNumber) exposureInfo['Aperture'] = 'f/' + allTags.FNumber;
+          if (allTags.ISOSpeedRatings) exposureInfo['ISO'] = allTags.ISOSpeedRatings;
+          if (allTags.FocalLength) exposureInfo['Focal Length'] = allTags.FocalLength + 'mm';
+          if (allTags.Flash) exposureInfo['Flash'] = allTags.Flash;
+          if (allTags.WhiteBalance) exposureInfo['White Balance'] = allTags.WhiteBalance;
+          if (allTags.ExposureMode) exposureInfo['Exposure Mode'] = allTags.ExposureMode;
+
+          if (Object.keys(exposureInfo).length) {
+            html += buildTable('⚡ Exposure Settings', exposureInfo);
+          }
+
+          // GPS info
+          const gpsInfo = {};
+          if (allTags.GPSLatitude && allTags.GPSLongitude) {
+            const lat = convertDMS(allTags.GPSLatitude, allTags.GPSLatitudeRef);
+            const lng = convertDMS(allTags.GPSLongitude, allTags.GPSLongitudeRef);
+            gpsInfo['Latitude'] = lat.toFixed(6) + '° ' + (allTags.GPSLatitudeRef || '');
+            gpsInfo['Longitude'] = lng.toFixed(6) + '° ' + (allTags.GPSLongitudeRef || '');
+            gpsInfo['Google Maps'] = '<a href="https://maps.google.com/?q=' + lat + ',' + lng + '" target="_blank" rel="noopener" style="color:var(--accent);">View on Map ↗</a>';
+          }
+          if (allTags.GPSAltitude) gpsInfo['Altitude'] = allTags.GPSAltitude + 'm';
+
+          if (Object.keys(gpsInfo).length) {
+            html += buildTable('🌍 GPS Location', gpsInfo);
+          }
+
+          // Date info
+          const dateInfo = {};
+          if (allTags.DateTimeOriginal) dateInfo['Date Taken'] = allTags.DateTimeOriginal;
+          if (allTags.DateTimeDigitized) dateInfo['Date Digitized'] = allTags.DateTimeDigitized;
+          if (allTags.DateTime) dateInfo['Date Modified'] = allTags.DateTime;
+
+          if (Object.keys(dateInfo).length) {
+            html += buildTable('📅 Date & Time', dateInfo);
+          }
+        } else {
+          html += '<div style="margin-top:24px;padding:24px;background:var(--amber-light);border-radius:var(--radius-md);color:var(--amber);font-weight:500;text-align:center;">No EXIF metadata found in this image. JPEG photos from cameras typically contain the most EXIF data.</div>';
+        }
+
+        document.getElementById('metaTables').innerHTML = html;
+      });
+    };
+    img.src = URL.createObjectURL(file);
+  });
+
+  function buildTable(title, data) {
+    let html = '<div class="meta-group-title">' + title + '</div>';
+    html += '<table class="g-meta-table"><tbody>';
+    for (const [key, val] of Object.entries(data)) {
+      html += '<tr><th>' + key + '</th><td>' + val + '</td></tr>';
+    }
+    html += '</tbody></table>';
+    return html;
+  }
+
+  function convertDMS(dms, ref) {
+    const d = dms[0], m = dms[1], s = dms[2];
+    let dd = d + m / 60 + s / 3600;
+    if (ref === 'S' || ref === 'W') dd *= -1;
+    return dd;
+  }
+
+  function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    document.getElementById('resultArea').classList.add('g-hidden');
+    document.getElementById('btnGroup').classList.add('g-hidden');
+    document.getElementById('metaTables').innerHTML = '';
+    document.getElementById('fileInput').value = '';
+  });
+})();
+</script>
+</body>
+</html>

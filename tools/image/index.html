@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Image Tools — Compress, Resize, Convert & More | Tolza</title>
+  <meta name="description" content="Free online image tools: compress, resize, crop, convert, watermark, rotate, blur images and more. No signup, no upload limits. Works right in your browser.">
+  <meta name="keywords" content="free image tools, compress image online, resize image, crop image, convert image, image to PDF, watermark image, rotate image, blur image, image metadata viewer">
+  <link rel="canonical" href="https://tolza.pages.dev/tools/image/">
+  <meta property="og:title" content="Free Online Image Tools — Tolza">
+  <meta property="og:description" content="Compress, resize, crop, convert, and edit images online for free. No signup required.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/css/global.css">
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Free Online Image Tools",
+    "description": "A collection of free online image editing tools including compression, resizing, cropping, conversion, and more.",
+    "url": "https://tolza.pages.dev/tools/image/",
+    "mainEntity": {
+      "@type": "ItemList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Compress Image", "url": "https://tolza.pages.dev/tools/image/compress-image/"},
+        {"@type": "ListItem", "position": 2, "name": "Resize Image", "url": "https://tolza.pages.dev/tools/image/resize-image/"},
+        {"@type": "ListItem", "position": 3, "name": "Crop Image", "url": "https://tolza.pages.dev/tools/image/crop-image/"},
+        {"@type": "ListItem", "position": 4, "name": "Convert Image", "url": "https://tolza.pages.dev/tools/image/convert-image/"},
+        {"@type": "ListItem", "position": 5, "name": "Image to PDF", "url": "https://tolza.pages.dev/tools/image/image-to-pdf/"},
+        {"@type": "ListItem", "position": 6, "name": "PDF to Image", "url": "https://tolza.pages.dev/tools/image/pdf-to-image/"},
+        {"@type": "ListItem", "position": 7, "name": "Rotate & Flip Image", "url": "https://tolza.pages.dev/tools/image/rotate-flip-image/"},
+        {"@type": "ListItem", "position": 8, "name": "Watermark Image", "url": "https://tolza.pages.dev/tools/image/watermark-image/"},
+        {"@type": "ListItem", "position": 9, "name": "Blur & Pixelate Image", "url": "https://tolza.pages.dev/tools/image/blur-pixelate-image/"},
+        {"@type": "ListItem", "position": 10, "name": "Image Metadata Viewer", "url": "https://tolza.pages.dev/tools/image/image-metadata-viewer/"}
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    /* Landing page hero */
+    .landing-hero {
+      padding: 120px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .landing-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 0%, rgba(240, 100, 73, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 20%, rgba(59, 109, 245, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 40% at 20% 30%, rgba(124, 93, 245, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .landing-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border-light) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.4;
+      mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 30%, black, transparent);
+      pointer-events: none;
+    }
+    .landing-hero-content {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .landing-hero-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 24px;
+      background: var(--coral-light);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .landing-hero-icon svg { width: 32px; height: 32px; color: var(--coral); }
+    .landing-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .landing-hero h1 span { color: var(--coral); }
+    .landing-hero p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .tools-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tools-count-badge .dot { color: var(--green); }
+  </style>
+</head>
+<body>
+<div class="g-tool-page">
+
+  <!-- ─── Navbar ─── -->
+  <nav class="g-navbar" role="navigation" aria-label="Main navigation">
+    <div class="g-nav-inner">
+      <a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a>
+      <ul class="g-nav-links" id="gNavLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/image/" class="active">Image Tools</a></li>
+        <li><a href="#" class="g-nav-link-btn">More Tools</a></li>
+      </ul>
+      <div class="g-nav-right">
+        <button id="gBackBtn" class="g-back-btn" aria-label="Go back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back
+        </button>
+        <button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="g-nav-burger" id="gNavBurger" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ─── Hero ─── -->
+    <header class="landing-hero">
+      <div class="landing-hero-content">
+        <div class="tools-count-badge g-fade-up">
+          <span class="dot">●</span> 10 Free Tools Available
+        </div>
+        <div class="landing-hero-icon g-fade-up g-stagger-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        </div>
+        <h1 class="g-fade-up g-stagger-2">Free Online <span>Image Tools</span></h1>
+        <p class="g-fade-up g-stagger-3">Compress, resize, crop, convert, and edit your images instantly. No signup required — everything runs in your browser.</p>
+      </div>
+    </header>
+
+    <!-- ─── Ad Banner (top) ─── -->
+    <div class="g-ad-banner">
+      <div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div>
+    </div>
+
+    <!-- ─── Popular Tools ─── -->
+    <section class="g-section" id="popular-tools">
+      <div class="g-section-header">
+        <div class="g-section-label">Popular</div>
+        <h2 class="g-section-title">Most Used Image Tools</h2>
+        <p class="g-section-desc">Start with the tools people use most. Fast, free, and no signup needed.</p>
+      </div>
+
+      <div class="g-tools-grid">
+        <!-- Compress -->
+        <article class="g-tool-card g-fade-up g-stagger-1">
+          <div class="g-tool-card-icon" style="background:var(--coral-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          </div>
+          <h3 class="g-tool-card-name">Compress Image</h3>
+          <p class="g-tool-card-desc">Reduce image file size without losing visible quality. Supports JPG, PNG, and WebP.</p>
+          <a href="/tools/image/compress-image/" class="g-tool-card-btn">Use Tool <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <!-- Resize -->
+        <article class="g-tool-card g-fade-up g-stagger-2">
+          <div class="g-tool-card-icon" style="background:var(--accent-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          </div>
+          <h3 class="g-tool-card-name">Resize Image</h3>
+          <p class="g-tool-card-desc">Change image dimensions with custom width, height, and aspect ratio control.</p>
+          <a href="/tools/image/resize-image/" class="g-tool-card-btn">Use Tool <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <!-- Convert -->
+        <article class="g-tool-card g-fade-up g-stagger-3">
+          <div class="g-tool-card-icon" style="background:var(--teal-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+          </div>
+          <h3 class="g-tool-card-name">Convert Image</h3>
+          <p class="g-tool-card-desc">Convert images between PNG, JPG, WebP, and BMP formats instantly.</p>
+          <a href="/tools/image/convert-image/" class="g-tool-card-btn">Use Tool <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+
+        <!-- Image to PDF -->
+        <article class="g-tool-card g-fade-up g-stagger-4">
+          <div class="g-tool-card-icon" style="background:var(--violet-light);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h3 class="g-tool-card-name">Image to PDF</h3>
+          <p class="g-tool-card-desc">Combine multiple images into a single PDF document. Drag to reorder pages.</p>
+          <a href="/tools/image/image-to-pdf/" class="g-tool-card-btn">Use Tool <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ─── Ad Inline ─── -->
+    <div class="g-ad-banner">
+      <div class="g-ad-slot g-ad-slot-inline" aria-label="Advertisement">Ad Space &middot; Inline</div>
+    </div>
+
+    <!-- ─── All Tools ─── -->
+    <section class="g-section" id="all-tools">
+      <div class="g-section-header">
+        <div class="g-section-label">All Tools</div>
+        <h2 class="g-section-title">Complete Image Toolkit</h2>
+        <p class="g-section-desc">Every tool you need for image editing, all free and browser-based.</p>
+      </div>
+
+      <div class="g-tools-grid">
+        <!-- Compress -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+          <h3 class="g-tool-card-name">Compress Image</h3>
+          <p class="g-tool-card-desc">Reduce file size while maintaining visual quality.</p>
+          <a href="/tools/image/compress-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Resize -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--accent-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div>
+          <h3 class="g-tool-card-name">Resize Image</h3>
+          <p class="g-tool-card-desc">Custom width & height with aspect ratio lock.</p>
+          <a href="/tools/image/resize-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Crop -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--teal-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/></svg></div>
+          <h3 class="g-tool-card-name">Crop Image</h3>
+          <p class="g-tool-card-desc">Drag to select the area to crop. Ratio presets included.</p>
+          <a href="/tools/image/crop-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Convert -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+          <h3 class="g-tool-card-name">Convert Image</h3>
+          <p class="g-tool-card-desc">Convert between PNG, JPG, WebP, and BMP.</p>
+          <a href="/tools/image/convert-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Image to PDF -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--violet-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <h3 class="g-tool-card-name">Image to PDF</h3>
+          <p class="g-tool-card-desc">Combine images into one PDF with page controls.</p>
+          <a href="/tools/image/image-to-pdf/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- PDF to Image -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--rose-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="12" width="8" height="6" rx="1"/></svg></div>
+          <h3 class="g-tool-card-name">PDF to Image</h3>
+          <p class="g-tool-card-desc">Convert each PDF page to a high-quality image.</p>
+          <a href="/tools/image/pdf-to-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Rotate / Flip -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--green-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg></div>
+          <h3 class="g-tool-card-name">Rotate & Flip</h3>
+          <p class="g-tool-card-desc">Rotate 90°, 180° or flip images horizontally/vertically.</p>
+          <a href="/tools/image/rotate-flip-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Watermark -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--accent-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="4" x2="12" y2="20"/></svg></div>
+          <h3 class="g-tool-card-name">Watermark Image</h3>
+          <p class="g-tool-card-desc">Add text watermarks with custom position and opacity.</p>
+          <a href="/tools/image/watermark-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Blur / Pixelate -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg></div>
+          <h3 class="g-tool-card-name">Blur & Pixelate</h3>
+          <p class="g-tool-card-desc">Apply blur or pixelation effects with adjustable intensity.</p>
+          <a href="/tools/image/blur-pixelate-image/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+
+        <!-- Metadata Viewer -->
+        <article class="g-tool-card g-fade-up">
+          <div class="g-tool-card-icon" style="background:var(--teal-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+          <h3 class="g-tool-card-name">Image Metadata</h3>
+          <p class="g-tool-card-desc">View EXIF data, camera info, GPS, and file details.</p>
+          <a href="/tools/image/image-metadata-viewer/" class="g-tool-card-btn">Use Tool →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- ─── SEO Content ─── -->
+    <div class="g-seo-section">
+      <h2>Why Use Tolza Image Tools?</h2>
+      <p>Tolza provides a complete suite of free online image tools that work entirely in your browser. Unlike other services that require uploading your files to a server, our tools process everything locally on your device — meaning your images stay private and the results are instant.</p>
+
+      <h3>Complete Image Editing Suite</h3>
+      <p>Whether you need to compress images for your website, resize photos for social media, crop images to specific dimensions, or convert between formats like PNG, JPG, and WebP — Tolza has you covered with 10 specialized tools designed for everyday tasks.</p>
+
+      <h3>Built for Speed and Privacy</h3>
+      <p>Every tool uses the HTML5 Canvas API for client-side processing. Your images never leave your device, making Tolza one of the most privacy-friendly image tools available. There are no upload limits, no file size restrictions, and no account required.</p>
+      <ul>
+        <li><strong>No upload required</strong> — files stay on your device</li>
+        <li><strong>Instant results</strong> — no waiting for server processing</li>
+        <li><strong>Free forever</strong> — no premium plans or hidden fees</li>
+        <li><strong>Works offline</strong> — most tools work without internet after loading</li>
+      </ul>
+
+      <h3>Who Is This For?</h3>
+      <p>Tolza image tools are perfect for bloggers, web developers, social media managers, students, and anyone who needs quick image editing without installing software. From compressing images for faster page loads to creating PDFs from photos, these tools save you time every day.</p>
+    </div>
+
+    <!-- ─── FAQ ─── -->
+    <section class="g-faq" id="faq">
+      <h2 class="g-faq-title">Frequently Asked Questions</h2>
+
+      <div class="g-faq-item">
+        <button class="g-faq-question">
+          Are these image tools really free?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="g-faq-answer"><div class="g-faq-answer-inner">Yes, all Tolza image tools are 100% free to use. There are no hidden fees, no premium tiers, and no usage limits. You can compress, resize, crop, and convert as many images as you want.</div></div>
+      </div>
+
+      <div class="g-faq-item">
+        <button class="g-faq-question">
+          Do you store my images on your servers?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="g-faq-answer"><div class="g-faq-answer-inner">No. All image processing happens directly in your browser using the HTML5 Canvas API. Your files never leave your device, and we don't have access to any images you edit.</div></div>
+      </div>
+
+      <div class="g-faq-item">
+        <button class="g-faq-question">
+          What image formats are supported?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="g-faq-answer"><div class="g-faq-answer-inner">Most tools support JPG, PNG, WebP, BMP, and GIF images. The Convert Image tool lets you switch between these formats. PDF tools work with standard PDF files and common image formats.</div></div>
+      </div>
+
+      <div class="g-faq-item">
+        <button class="g-faq-question">
+          Is there a file size limit?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="g-faq-answer"><div class="g-faq-answer-inner">There's no hard limit since processing happens in your browser. However, very large images (over 50MB) may be slow depending on your device's memory and processor. For best performance, we recommend working with images under 20MB.</div></div>
+      </div>
+
+      <div class="g-faq-item">
+        <button class="g-faq-question">
+          Can I use these tools on mobile?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="g-faq-answer"><div class="g-faq-answer-inner">Absolutely! All tools are fully responsive and work on smartphones, tablets, and desktops. You can even use drag-and-drop on supported mobile browsers, or tap to select files from your gallery.</div></div>
+      </div>
+    </section>
+
+    <!-- ─── Ad Banner (bottom) ─── -->
+    <div class="g-ad-banner">
+      <div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div>
+    </div>
+  </main>
+
+  <!-- ─── Footer ─── -->
+  <footer class="g-footer">
+    <div class="g-footer-inner">
+      <div class="g-footer-brand">
+        <div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div>
+        <p class="g-footer-desc">A collection of fast, free online tools for everyday tasks. Built to be simple, private, and reliable.</p>
+      </div>
+      <div class="g-footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div>
+  </footer>
+
+</div>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Are these image tools really free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, all Tolza image tools are 100% free to use. There are no hidden fees, no premium tiers, and no usage limits."}},
+    {"@type": "Question", "name": "Do you store my images on your servers?", "acceptedAnswer": {"@type": "Answer", "text": "No. All image processing happens directly in your browser using the HTML5 Canvas API. Your files never leave your device."}},
+    {"@type": "Question", "name": "What image formats are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Most tools support JPG, PNG, WebP, BMP, and GIF images. The Convert Image tool lets you switch between these formats."}},
+    {"@type": "Question", "name": "Is there a file size limit?", "acceptedAnswer": {"@type": "Answer", "text": "There's no hard limit since processing happens in your browser. For best performance, we recommend images under 20MB."}},
+    {"@type": "Question", "name": "Can I use these tools on mobile?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely! All tools are fully responsive and work on smartphones, tablets, and desktops."}}
+  ]
+}
+</script>
+
+<script src="/js/global.js"></script>
+</body>
+</html>

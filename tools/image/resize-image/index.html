@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resize Image Online Free — Change Image Dimensions | Tolza</title>
+  <meta name="description" content="Resize images online for free. Set custom width and height, maintain aspect ratio, and download instantly. No signup or upload to servers.">
+  <link rel="canonical" href="https://tolza.pages.dev/tools/image/resize-image/">
+  <meta property="og:title" content="Resize Image Online Free — Tolza">
+  <meta property="og:description" content="Resize images to any dimension with aspect ratio control. Free, fast, and private.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/global.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Resize Image Online","description":"Free online tool to resize images with custom dimensions and aspect ratio control.","url":"https://tolza.pages.dev/tools/image/resize-image/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  </script>
+</head>
+<body>
+<div class="g-tool-page">
+  <!-- Navbar -->
+  <nav class="g-navbar" role="navigation" aria-label="Main navigation">
+    <div class="g-nav-inner">
+      <a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a>
+      <ul class="g-nav-links" id="gNavLinks">
+        <li><a href="/">Home</a></li>
+        <li><a href="/tools/image/" class="active">Image Tools</a></li>
+        <li><a href="#">More Tools</a></li>
+      </ul>
+      <div class="g-nav-right">
+        <button id="gBackBtn" class="g-back-btn" aria-label="Go back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back</button>
+        <button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+        <button class="g-nav-burger" id="gNavBurger" aria-label="Toggle menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+
+    <!-- Hero -->
+    <div class="g-tool-hero">
+      <div class="g-tool-hero-content">
+        <div class="g-tool-icon-badge" style="background:var(--accent-light);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+        </div>
+        <h1>Resize Image Online</h1>
+        <p>Change image dimensions with custom width, height, and aspect ratio control. Free and instant.</p>
+      </div>
+    </div>
+
+    <div class="g-tool-container">
+      <!-- Upload Zone -->
+      <div class="g-upload-zone" id="uploadZone">
+        <input type="file" accept="image/*" id="fileInput">
+        <div class="g-upload-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="g-upload-title">Drop your image here</div>
+        <div class="g-upload-subtitle">or <span>click to browse</span> &middot; JPG, PNG, WebP, BMP</div>
+      </div>
+
+      <!-- Controls (hidden until image loaded) -->
+      <div class="g-tool-controls g-hidden" id="controls">
+        <div class="g-tool-controls-title">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Resize Options
+        </div>
+
+        <!-- Original dimensions display -->
+        <div class="g-control-row">
+          <span class="g-control-label">Original Size</span>
+          <span class="g-control-value" id="origDims">—</span>
+        </div>
+
+        <!-- Width -->
+        <div class="g-control-row">
+          <label class="g-control-label" for="widthInput">Width (px)</label>
+          <input type="number" id="widthInput" class="g-input g-input-sm" min="1" max="10000" placeholder="Width">
+        </div>
+
+        <!-- Height -->
+        <div class="g-control-row">
+          <label class="g-control-label" for="heightInput">Height (px)</label>
+          <input type="number" id="heightInput" class="g-input g-input-sm" min="1" max="10000" placeholder="Height">
+        </div>
+
+        <!-- Aspect ratio lock -->
+        <div class="g-control-row">
+          <span class="g-control-label">Lock Aspect Ratio</span>
+          <label class="g-toggle">
+            <input type="checkbox" id="aspectLock" checked>
+            <span class="g-toggle-slider"></span>
+          </label>
+        </div>
+
+        <!-- Presets -->
+        <div class="g-control-row">
+          <span class="g-control-label">Presets</span>
+          <div class="g-option-pills" id="presets">
+            <button class="g-pill" data-w="1080" data-h="1080">1080×1080</button>
+            <button class="g-pill" data-w="1920" data-h="1080">1920×1080</button>
+            <button class="g-pill" data-w="1280" data-h="720">1280×720</button>
+            <button class="g-pill" data-w="800" data-h="600">800×600</button>
+            <button class="g-pill" data-w="500" data-h="500">500×500</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preview -->
+      <div class="g-preview-area g-hidden" id="previewArea">
+        <canvas id="canvas"></canvas>
+      </div>
+
+      <!-- Buttons -->
+      <div class="g-btn-group g-hidden" id="btnGroup">
+        <button class="g-btn-primary" id="downloadBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Resized Image
+        </button>
+        <button class="g-btn-secondary" id="resetBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          Reset
+        </button>
+      </div>
+
+      <!-- Ad -->
+      <div class="g-ad-slot g-ad-slot-inline" aria-label="Advertisement">Ad Space &middot; Inline</div>
+
+      <!-- Related Tools -->
+      <div class="g-related-tools">
+        <h2>Related Image Tools</h2>
+        <div class="g-related-grid">
+          <a href="/tools/image/compress-image/" class="g-related-card">
+            <div class="g-related-card-icon" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+            <span class="g-related-card-name">Compress Image</span>
+          </a>
+          <a href="/tools/image/crop-image/" class="g-related-card">
+            <div class="g-related-card-icon" style="background:var(--teal-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/></svg></div>
+            <span class="g-related-card-name">Crop Image</span>
+          </a>
+          <a href="/tools/image/convert-image/" class="g-related-card">
+            <div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+            <span class="g-related-card-name">Convert Image</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <section class="g-faq">
+      <h2 class="g-faq-title">Frequently Asked Questions</h2>
+      <div class="g-faq-item"><button class="g-faq-question">How do I resize an image without losing quality?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">When downsizing, quality loss is minimal. When upsizing, some quality loss is expected since the browser has to interpolate new pixels. For best results, avoid scaling up more than 2x the original size.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">Can I resize multiple images at once?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">Currently this tool processes one image at a time. For batch resizing, you can process each image sequentially — the settings are preserved between uploads.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">What's the maximum image size supported?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">There's no fixed limit. Processing happens in your browser, so it depends on your device's RAM and CPU. Images up to 20MB or 8000×8000px work well on most devices.</div></div></div>
+    </section>
+
+    <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="g-footer"><div class="g-footer-inner"><div class="g-footer-brand"><div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div><p class="g-footer-desc">A collection of fast, free online tools for everyday tasks. Built to be simple, private, and reliable.</p></div><div class="g-footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Disclaimer</a><a href="#">Contact</a></div></div><div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div></footer>
+</div>
+
+<script src="/js/global.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  let originalImg = null;
+  let originalWidth = 0;
+  let originalHeight = 0;
+  let aspectRatio = 1;
+
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  const widthInput = document.getElementById('widthInput');
+  const heightInput = document.getElementById('heightInput');
+  const aspectLock = document.getElementById('aspectLock');
+  const controls = document.getElementById('controls');
+  const previewArea = document.getElementById('previewArea');
+  const btnGroup = document.getElementById('btnGroup');
+
+  // Upload handler
+  TolzaUpload('uploadZone', (files) => {
+    const file = files[0];
+    if (!file || !file.type.startsWith('image/')) return;
+
+    const img = new Image();
+    img.onload = () => {
+      originalImg = img;
+      originalWidth = img.width;
+      originalHeight = img.height;
+      aspectRatio = img.width / img.height;
+
+      widthInput.value = img.width;
+      heightInput.value = img.height;
+      document.getElementById('origDims').textContent = img.width + ' × ' + img.height + ' px';
+
+      controls.classList.remove('g-hidden');
+      previewArea.classList.remove('g-hidden');
+      btnGroup.classList.remove('g-hidden');
+
+      drawPreview();
+    };
+    img.src = URL.createObjectURL(file);
+  });
+
+  // Width change
+  widthInput.addEventListener('input', () => {
+    if (aspectLock.checked && originalImg) {
+      heightInput.value = Math.round(widthInput.value / aspectRatio);
+    }
+    drawPreview();
+  });
+
+  // Height change
+  heightInput.addEventListener('input', () => {
+    if (aspectLock.checked && originalImg) {
+      widthInput.value = Math.round(heightInput.value * aspectRatio);
+    }
+    drawPreview();
+  });
+
+  // Presets
+  document.getElementById('presets').addEventListener('click', (e) => {
+    const pill = e.target.closest('.g-pill');
+    if (!pill) return;
+    document.querySelectorAll('#presets .g-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    widthInput.value = pill.dataset.w;
+    heightInput.value = pill.dataset.h;
+    aspectLock.checked = false;
+    drawPreview();
+  });
+
+  function drawPreview() {
+    if (!originalImg) return;
+    const w = parseInt(widthInput.value) || originalWidth;
+    const h = parseInt(heightInput.value) || originalHeight;
+    canvas.width = w;
+    canvas.height = h;
+    ctx.drawImage(originalImg, 0, 0, w, h);
+  }
+
+  // Download
+  document.getElementById('downloadBtn').addEventListener('click', () => {
+    if (!originalImg) return;
+    const link = document.createElement('a');
+    link.download = 'resized-image.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    TolzaToast('Image downloaded!');
+  });
+
+  // Reset
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    originalImg = null;
+    controls.classList.add('g-hidden');
+    previewArea.classList.add('g-hidden');
+    btnGroup.classList.add('g-hidden');
+    document.getElementById('fileInput').value = '';
+    document.querySelectorAll('#presets .g-pill').forEach(p => p.classList.remove('active'));
+  });
+})();
+</script>
+</body>
+</html>
