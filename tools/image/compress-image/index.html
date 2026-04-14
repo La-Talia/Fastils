@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compress Image Online - Tolza</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Compress Image</h1>
+  <p class="subtitle">Reduce image size instantly without losing quality</p>
+
+  <!-- Upload Area -->
+  <div class="upload-box" id="uploadBox">
+    <input type="file" id="fileInput" accept="image/*" hidden>
+    <p>Click or Drag & Drop Image</p>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <label>Compression Level: <span id="qualityValue">70</span>%</label>
+    <input type="range" id="qualitySlider" min="10" max="100" value="70">
+  </div>
+
+  <!-- Preview -->
+  <div class="preview">
+    <div>
+      <h3>Original</h3>
+      <img id="originalImg">
+      <p id="originalSize"></p>
+    </div>
+
+    <div>
+      <h3>Compressed</h3>
+      <img id="compressedImg">
+      <p id="compressedSize"></p>
+      <a id="downloadBtn" download="compressed.jpg">Download</a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
