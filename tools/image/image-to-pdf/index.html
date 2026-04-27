@@ -117,7 +117,7 @@
       <div class="g-related-tools"><h2>Related Image Tools</h2><div class="g-related-grid">
         <a href="/tools/image/pdf-to-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--rose-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="12" width="8" height="6" rx="1"/></svg></div><span class="g-related-card-name">PDF to Image</span></a>
         <a href="/tools/image/compress-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div><span class="g-related-card-name">Compress Image</span></a>
-        <a href="/tools/image/resize-image/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--accent-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></div><span class="g-related-card-name">Resize Image</span></a>
+        <a href="/tools/image/compress-pdf/" class="g-related-card"><div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg></div><span class="g-related-card-name">Compress PDF</span></a>
       </div></div>
     </div>
 
@@ -132,8 +132,30 @@
   <footer class="g-footer"><div class="g-footer-inner"><div class="g-footer-brand"><div class="g-footer-logo"><span class="logo-dot"></span>Tolza</div><p class="g-footer-desc">A collection of fast, free online tools for everyday tasks.</p></div><div class="g-footer-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Contact</a></div></div><div class="g-footer-bottom">&copy; 2026 Tolza. All rights reserved.</div></footer>
 </div>
 
-<!-- jsPDF library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+<!-- jsPDF library — primary + fallback CDN -->
+<script>
+  // Try loading jsPDF from primary CDN, fall back if needed
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  (async () => {
+    try {
+      await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js');
+    } catch {
+      try {
+        await loadScript('https://unpkg.com/jspdf@2.5.2/dist/jspdf.umd.min.js');
+      } catch {
+        console.error('Failed to load jsPDF from all CDNs');
+      }
+    }
+  })();
+</script>
 <script src="/js/global.js"></script>
 <script>
 (function() {
@@ -224,92 +246,111 @@
   document.getElementById('generateBtn').addEventListener('click', async () => {
     if (images.length === 0) return;
 
-    const { jsPDF } = window.jspdf;
-    const pageSize = document.getElementById('pageSize').value;
-    const orientation = document.getElementById('orientation').value;
-    const margin = parseInt(marginSlider.value);
+    // Check if jsPDF loaded
+    if (!window.jspdf || !window.jspdf.jsPDF) {
+      TolzaToast('Error: PDF library failed to load. Please refresh the page and try again.');
+      console.error('jsPDF not loaded. window.jspdf:', window.jspdf);
+      return;
+    }
+
+    const generateBtn = document.getElementById('generateBtn');
+    generateBtn.disabled = true;
 
     const progressWrap = document.getElementById('progressWrap');
     const progressFill = document.getElementById('progressFill');
     const progressText = document.getElementById('progressText');
     progressWrap.classList.add('active');
 
-    // Load all images first
-    const loadedImgs = [];
-    for (let i = 0; i < images.length; i++) {
-      progressText.textContent = `Loading image ${i + 1} of ${images.length}...`;
-      progressFill.style.width = ((i + 1) / images.length * 50) + '%';
-      const img = await loadImage(images[i].url);
-      loadedImgs.push({ img, rotation: images[i].rotation });
-    }
+    try {
+      const { jsPDF } = window.jspdf;
+      const pageSize = document.getElementById('pageSize').value;
+      const orientation = document.getElementById('orientation').value;
+      const margin = parseInt(marginSlider.value);
 
-    progressText.textContent = 'Generating PDF...';
-
-    // Create PDF
-    let pdf = null;
-    for (let i = 0; i < loadedImgs.length; i++) {
-      const { img, rotation } = loadedImgs[i];
-      progressFill.style.width = (50 + (i + 1) / loadedImgs.length * 50) + '%';
-      progressText.textContent = `Adding page ${i + 1} of ${loadedImgs.length}...`;
-
-      // Determine effective dimensions after rotation
-      const swapped = rotation === 90 || rotation === 270;
-      const imgW = swapped ? img.height : img.width;
-      const imgH = swapped ? img.width : img.height;
-
-      // Determine orientation for this page
-      let orient = orientation;
-      if (orient === 'auto') orient = imgW > imgH ? 'landscape' : 'portrait';
-
-      if (i === 0) {
-        const format = pageSize === 'fit' ? [imgW * 0.264583 + margin * 2, imgH * 0.264583 + margin * 2] : pageSize;
-        pdf = new jsPDF({ orientation: orient, unit: 'mm', format: format });
-      } else {
-        const format = pageSize === 'fit' ? [imgW * 0.264583 + margin * 2, imgH * 0.264583 + margin * 2] : pageSize;
-        pdf.addPage(format, orient);
+      // Load all images first
+      const loadedImgs = [];
+      for (let i = 0; i < images.length; i++) {
+        progressText.textContent = `Loading image ${i + 1} of ${images.length}...`;
+        progressFill.style.width = ((i + 1) / images.length * 50) + '%';
+        const img = await loadImage(images[i].url);
+        loadedImgs.push({ img, rotation: images[i].rotation });
       }
 
-      const pageW = pdf.internal.pageSize.getWidth() - margin * 2;
-      const pageH = pdf.internal.pageSize.getHeight() - margin * 2;
+      progressText.textContent = 'Generating PDF...';
 
-      // Canvas for rotation
-      const canvas = document.createElement('canvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = imgW;
-      canvas.height = imgH;
-      ctx.save();
-      ctx.translate(imgW / 2, imgH / 2);
-      ctx.rotate((rotation * Math.PI) / 180);
-      ctx.drawImage(img, -img.width / 2, -img.height / 2);
-      ctx.restore();
+      // Create PDF
+      let pdf = null;
+      for (let i = 0; i < loadedImgs.length; i++) {
+        const { img, rotation } = loadedImgs[i];
+        progressFill.style.width = (50 + (i + 1) / loadedImgs.length * 50) + '%';
+        progressText.textContent = `Adding page ${i + 1} of ${loadedImgs.length}...`;
 
-      // Fit image to page
-      const scale = Math.min(pageW / imgW, pageH / imgH);
-      const drawW = imgW * scale;
-      const drawH = imgH * scale;
-      const offsetX = margin + (pageW - drawW) / 2;
-      const offsetY = margin + (pageH - drawH) / 2;
+        // Determine effective dimensions after rotation
+        const swapped = rotation === 90 || rotation === 270;
+        const imgW = swapped ? img.height : img.width;
+        const imgH = swapped ? img.width : img.height;
 
-      const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
-      pdf.addImage(dataUrl, 'JPEG', offsetX, offsetY, drawW, drawH);
+        // Determine orientation for this page
+        let orient = orientation;
+        if (orient === 'auto') orient = imgW > imgH ? 'landscape' : 'portrait';
+
+        if (i === 0) {
+          const format = pageSize === 'fit' ? [imgW * 0.264583 + margin * 2, imgH * 0.264583 + margin * 2] : pageSize;
+          pdf = new jsPDF({ orientation: orient, unit: 'mm', format: format });
+        } else {
+          const format = pageSize === 'fit' ? [imgW * 0.264583 + margin * 2, imgH * 0.264583 + margin * 2] : pageSize;
+          pdf.addPage(format, orient);
+        }
+
+        const pageW = pdf.internal.pageSize.getWidth() - margin * 2;
+        const pageH = pdf.internal.pageSize.getHeight() - margin * 2;
+
+        // Canvas for rotation
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = imgW;
+        canvas.height = imgH;
+        ctx.save();
+        ctx.translate(imgW / 2, imgH / 2);
+        ctx.rotate((rotation * Math.PI) / 180);
+        ctx.drawImage(img, -img.width / 2, -img.height / 2);
+        ctx.restore();
+
+        // Fit image to page
+        const scale = Math.min(pageW / imgW, pageH / imgH);
+        const drawW = imgW * scale;
+        const drawH = imgH * scale;
+        const offsetX = margin + (pageW - drawW) / 2;
+        const offsetY = margin + (pageH - drawH) / 2;
+
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+        pdf.addImage(dataUrl, 'JPEG', offsetX, offsetY, drawW, drawH);
+      }
+
+      progressText.textContent = 'Done!';
+      progressFill.style.width = '100%';
+
+      pdf.save('images-to-pdf.pdf');
+      TolzaToast('PDF downloaded!');
+
+    } catch (err) {
+      console.error('PDF generation error:', err);
+      TolzaToast('Error generating PDF: ' + err.message);
+      progressText.textContent = 'Error — please try again.';
+    } finally {
+      generateBtn.disabled = false;
+      setTimeout(() => {
+        progressWrap.classList.remove('active');
+        progressFill.style.width = '0%';
+      }, 2000);
     }
-
-    progressText.textContent = 'Done!';
-    progressFill.style.width = '100%';
-
-    pdf.save('images-to-pdf.pdf');
-    TolzaToast('PDF downloaded!');
-
-    setTimeout(() => {
-      progressWrap.classList.remove('active');
-      progressFill.style.width = '0%';
-    }, 2000);
   });
 
   function loadImage(url) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const img = new Image();
       img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error('Failed to load image'));
       img.src = url;
     });
   }

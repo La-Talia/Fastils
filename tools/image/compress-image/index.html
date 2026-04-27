@@ -9,13 +9,12 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-0NWHYZ62BW');
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compress Image Online Free — Reduce File Size | Tolza</title>
-  <meta name="description" content="Compress images online for free. Reduce JPG, PNG, and WebP file sizes without losing visible quality. No signup, no uploads to servers.">
+  <title>Compress & Upscale Image Online Free — Reduce or Increase File Size | Tolza</title>
+  <meta name="description" content="Compress or upscale images online for free. Reduce JPG, PNG, WebP file sizes or increase resolution. Set target file size. No signup, no uploads to servers.">
   <link rel="canonical" href="https://tolza.pages.dev/tools/image/compress-image/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,13 +22,13 @@
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebApplication","name":"Compress Image Online","description":"Free online image compressor. Reduce image file size without losing quality.","url":"https://tolza.pages.dev/tools/image/compress-image/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Compress & Upscale Image Online","description":"Free online image compressor and upscaler. Reduce or increase image file size and resolution.","url":"https://tolza.pages.dev/tools/image/compress-image/","applicationCategory":"MultimediaApplication","operatingSystem":"All","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
   </script>
 </head>
 <body>
 <div class="g-tool-page">
 
-  <!-- ─── Shared Navbar ─── -->
+  <!-- Navbar -->
   <nav class="g-navbar" role="navigation" aria-label="Main navigation">
     <div class="g-nav-inner">
       <a href="/" class="g-nav-logo"><span class="logo-dot"></span>Tolza</a>
@@ -40,8 +39,7 @@
       </ul>
       <div class="g-nav-right">
         <button id="gBackBtn" class="g-back-btn" aria-label="Go back">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Back
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back
         </button>
         <button class="g-theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
           <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -58,36 +56,71 @@
     <!-- Ad Banner (top) -->
     <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
 
-    <!-- Original tool content (untouched) -->
-    <div class="container">
-      <h1>Compress Image</h1>
-      <p class="subtitle">Reduce image size instantly without losing quality</p>
+    <!-- Hero -->
+    <div class="g-tool-hero">
+      <div class="g-tool-hero-content">
+        <div class="g-tool-icon-badge" style="background:var(--coral-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <h1>Compress & Upscale Image</h1>
+        <p>Reduce file size or increase resolution. Set exact target size or use the quality slider.</p>
+      </div>
+    </div>
 
+    <div class="g-tool-container">
       <!-- Upload Area -->
       <div class="upload-box" id="uploadBox">
         <input type="file" id="fileInput" accept="image/*" hidden>
+        <div class="upload-box-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
         <p>Click or Drag & Drop Image</p>
+        <span class="upload-hint">JPG, PNG, WebP supported</span>
       </div>
 
-      <!-- Controls -->
-      <div class="controls">
-        <label>Compression Level: <span id="qualityValue">70</span>%</label>
-        <input type="range" id="qualitySlider" min="10" max="100" value="70">
+      <!-- Controls Panel -->
+      <div class="controls g-hidden" id="controlsPanel">
+        <!-- Quality Slider -->
+        <div class="control-section">
+          <label>Quality: <span id="qualityValue">70</span>%</label>
+          <input type="range" id="qualitySlider" min="1" max="100" value="70">
+          <div class="control-hint">Lower = smaller file, higher = better quality</div>
+        </div>
+
+        <!-- Scale / Upscale Slider -->
+        <div class="control-section">
+          <label>Scale: <span id="scaleValue">100%</span></label>
+          <input type="range" id="scaleSlider" min="10" max="400" value="100">
+          <div class="control-hint">Below 100% = downscale, above 100% = upscale resolution</div>
+        </div>
+
+        <!-- Target Size Input -->
+        <div class="control-section target-size-section">
+          <label>Target File Size:</label>
+          <div class="target-size-row">
+            <input type="number" id="targetSizeInput" class="g-input g-input-sm" placeholder="e.g. 500" min="1" step="1">
+            <select id="targetSizeUnit" class="g-select target-unit-select">
+              <option value="KB">KB</option>
+              <option value="MB">MB</option>
+            </select>
+            <button class="g-btn-primary target-size-go" id="targetSizeBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg>
+              Compress
+            </button>
+          </div>
+          <div class="control-hint">Enter desired output size — we'll find the best quality match</div>
+        </div>
       </div>
 
       <!-- Preview -->
-      <div class="preview">
+      <div class="preview g-hidden" id="previewPanel">
         <div>
           <h3>Original</h3>
-          <img id="originalImg">
+          <img id="originalImg" alt="Original image">
           <p id="originalSize"></p>
         </div>
-
         <div>
-          <h3>Compressed</h3>
-          <img id="compressedImg">
+          <h3>Result</h3>
+          <img id="compressedImg" alt="Processed image">
           <p id="compressedSize"></p>
-          <a id="downloadBtn" download="compressed.jpg">Download</a>
+          <span class="reduction-badge g-hidden" id="reductionBadge"></span>
+          <a id="downloadBtn" class="g-hidden" download="tolza-compressed.jpg">Download</a>
         </div>
       </div>
     </div>
@@ -107,9 +140,9 @@
           <div class="g-related-card-icon" style="background:var(--amber-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--amber)" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
           <span class="g-related-card-name">Convert Image</span>
         </a>
-        <a href="/tools/image/crop-image/" class="g-related-card">
-          <div class="g-related-card-icon" style="background:var(--teal-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"/><path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"/></svg></div>
-          <span class="g-related-card-name">Crop Image</span>
+        <a href="/tools/image/compress-pdf/" class="g-related-card">
+          <div class="g-related-card-icon" style="background:var(--violet-light);"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+          <span class="g-related-card-name">Compress PDF</span>
         </a>
       </div>
     </div>
@@ -118,13 +151,14 @@
     <section class="g-faq">
       <h2 class="g-faq-title">Frequently Asked Questions</h2>
       <div class="g-faq-item"><button class="g-faq-question">How much can I compress?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">JPG images can typically be reduced by 50-80% at quality level 70 with minimal visible difference. PNG images are compressed by converting to JPG.</div></div></div>
-      <div class="g-faq-item"><button class="g-faq-question">Is the compression lossless?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">The compression uses JPEG encoding, which is technically lossy. However, at quality levels above 60%, the visual difference is imperceptible to most viewers.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">What does the upscaler do?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">The upscaler increases image resolution (up to 4x) using high-quality bicubic interpolation. Set the scale slider above 100% to enlarge your image dimensions.</div></div></div>
+      <div class="g-faq-item"><button class="g-faq-question">How does target size work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="g-faq-answer"><div class="g-faq-answer-inner">Enter your desired file size in KB or MB and click Compress. The tool uses binary search to automatically find the best JPEG quality level that produces a file closest to your target size.</div></div></div>
     </section>
 
     <div class="g-ad-banner"><div class="g-ad-slot g-ad-slot-banner" aria-label="Advertisement">Ad Space &middot; 728 &times; 90</div></div>
   </main>
 
-  <!-- ─── Shared Footer ─── -->
+  <!-- Footer -->
   <footer class="g-footer">
     <div class="g-footer-inner">
       <div class="g-footer-brand">
